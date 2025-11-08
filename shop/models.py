@@ -55,8 +55,7 @@ class CartItem:
             raise ValueError("Quantity must be at least 1")
         return n
 
-    @property
-    def total_price(self) -> float:
+    def total_line(self) -> float:
         return self.product.price * self.quantity
 
 
