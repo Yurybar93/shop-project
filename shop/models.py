@@ -18,9 +18,9 @@ class Product:
 
 
 class Customer:
-    def __init__(self, customer_id: str, name: str, email: str):
+    def __init__(self, customer_id: str, email: str):
         self.customer_id = customer_id
-        self.email = email
+        self._email = self._validate_email(email)
 
     @property
     def email(self) -> str:
