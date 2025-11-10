@@ -62,7 +62,7 @@ class CartItem:
 class Cart:
     def __init__(self, customer: Customer):
         self.customer = customer
-        self._items = dict[str, CartItem] = {}
+        self._items: dict[str, CartItem] = {}
 
     def add_item(self, product: Product, quantity: int) -> None:
         if product.sku in self._items:
@@ -78,7 +78,7 @@ class Cart:
         self._items.clear()
 
     def total_amount(self) -> float:
-        return sum(item.total_price for item in self._items.values())
+        return sum(item.total_line() for item in self._items.values())
 
     def __len__(self) -> int:
         return len(self._items)
